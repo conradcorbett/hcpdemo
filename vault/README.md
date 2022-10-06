@@ -1,9 +1,9 @@
-#Make sure following variables are set on Vault server:
+
 vault read sys/license/status
 export VAULT_ADDR=http://localhost:8200
 export VAULT_TOKEN=hvs.B64McxRmKD2WnVJG1WiTIA0e
 export VAULT_NAMESPACE=dev
-export MYSQL_ENDPOINT=10.42.42.94:3306
+export MYSQL_ENDPOINT=<INSERT_MYSQL_IP>:3306
 vault status
 
 vault write data_protection/database/config/flaskapp \
@@ -24,3 +24,4 @@ vault write -force data_protection/database/rotate-root/flaskapp
 
 vault read data_protection/database/creds/demo-app
 #Update db.yaml with username and password from above
+

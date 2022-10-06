@@ -55,7 +55,7 @@ resource "nutanix_virtual_machine" "mysql-vm-demo" {
 
   #Testing local-exec, writes file to local machine
   provisioner "local-exec" {
-    command = "echo MySQL IP: ${self.nic_list[0].ip_endpoint_list[0].ip} >> mysql_ip.txt"
+    command = "echo export MYSQL_ENDPOINT=${self.nic_list[0].ip_endpoint_list[0].ip}:3306 >> vault/README.md"
    }
 
   connection {
