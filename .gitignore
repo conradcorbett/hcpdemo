@@ -3,6 +3,7 @@ license.txt
 .DS_Store
 # Local .terraform directories
 **/.terraform/*
+.hcl
 
 # .tfstate files
 *.tfstate
