@@ -3,7 +3,7 @@ license.txt
 .DS_Store
 # Local .terraform directories
 **/.terraform/*
-.hcl
+*.hcl
 
 # .tfstate files
 *.tfstate
@@ -11,3 +11,6 @@ license.txt
 
 # Crash log files
 crash.log
+
+flaskapp_ip.txt
+mysql_ip.txt
