@@ -1,0 +1,6 @@
+license.txt
+.env
+.DS_Store
+.terraform
+.tfstate
+.tfstate.backup
