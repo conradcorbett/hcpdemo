@@ -8,6 +8,16 @@ terraform{
     }
 }
 
+terraform {
+  cloud {
+    organization = "example-org-41a774"
+
+    workspaces {
+      name = "Demo-Part1"
+    }
+  }
+}
+
 #definig nutanix configuration
 provider "nutanix"{
   username = var.nutanix_username
