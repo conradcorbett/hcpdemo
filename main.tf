@@ -53,7 +53,7 @@ resource "nutanix_virtual_machine" "mysql-vm-demo" {
     subnet_uuid = data.nutanix_subnet.subnet.id
   }
 
-  #Testing local-exec, writes file to local machine
+  #writes file to local machine
   provisioner "local-exec" {
     command = "echo export MYSQL_ENDPOINT=${self.nic_list[0].ip_endpoint_list[0].ip}:3306 >> vault/README.md"
    }
@@ -104,7 +104,7 @@ resource "nutanix_virtual_machine" "flaskapp-vm-demo" {
     subnet_uuid = data.nutanix_subnet.subnet.id
   }
 
-  #Testing local-exec, writes file to local machine
+  #writes file to local machine
   provisioner "local-exec" {
     command = "echo ${self.nic_list[0].ip_endpoint_list[0].ip} >> flaskapp_ip.txt"
    }
@@ -130,7 +130,6 @@ resource "nutanix_virtual_machine" "flaskapp-vm-demo" {
 
   provisioner "remote-exec" {
     inline = [
-      "echo ${self.nic_list[0].ip_endpoint_list[0].ip} >> ip.txt",
       "echo mysql_host: ${nutanix_virtual_machine.mysql-vm-demo.nic_list[0].ip_endpoint_list[0].ip} >> /root/flaskapp/db.yaml",
       "chmod 777 /root/flaskapp/install_flask.sh",
       "/root/flaskapp/install_flask.sh",
